@@ -1,0 +1,28 @@
+The solution involves understanding and leveraging CSS specificity correctly:
+
+```css
+div {
+  font-size: 16px;
+}
+
+.container div {
+  font-size: 18px;
+}
+
+.container p {
+  font-size: 14px;
+}
+
+.container p span {
+  color: red !important; /* Force the red color override */
+}
+
+.container .special-paragraph {
+  font-size: 20px;
+  color: green;
+}
+```
+
+By adding `!important` to the `.container p span` selector, we force the red color to take precedence regardless of inheritance from the parent element.  This is often a solution, but it's better to restructure the CSS to avoid the need for `!important` whenever possible to ensure more maintainable code.  Alternatively, one could adjust the selector specificity if needed, but sometimes this is less readable.
+
+For the font-size issue, careful consideration of how selectors are applied and their cascade is needed, along with restructuring of selectors when needed.
